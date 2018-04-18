@@ -1,0 +1,25 @@
+.ui.top.attached.menu{
+    margin-top: 10px !important;
+    border-top: none !important;
+    border-right: none !important;
+    border-left: none !important;
+    padding-bottom: 10px !important;
+}
+
+.ui.button{
+    height: 40px !important;
+}
+
+.right.menu{
+    margin-right: 20px !important;
+}
+
+.content{
+    margin-left: 10px;
+}
+
+.logout {
+    color: blue !important;
+    text-decoration: underline !important;
+    cursor: pointer;
+}
