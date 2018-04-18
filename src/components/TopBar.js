@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import {logout} from '../helpers/auth'
 import {loginWithGoogle} from '../helpers/auth';
 import './../styles/TopBar.css';
-// import Client from '../Client';
-
 
 class TopBar extends Component {
     authenticate = () => {
@@ -41,21 +39,11 @@ class TopBar extends Component {
                                 <p>PUT WEATHER COMPONENT HERE</p>
                             ) : 
                             (
-                                <button onClick={() => this.authenticate('google')} className="ui primary button">Login Google</button>
+                                <button onClick={() => this.authenticate()} className="ui primary button">Login Google</button>
                             )
                         }
                     </div>
                 </div> 
-                <div className="container">
-                    {this.props.authed ? 
-                        (
-                            <p>PUT OTHER COMPONENTS</p>
-                        ) : 
-                        (
-                            <p></p>// <button onClick={() => this.authenticate('google')} className="ui primary button">Login Google</button>
-                        )
-                    }
-                </div>
             </div>           
         );
     }
