@@ -14,7 +14,6 @@ class App extends Component {
 }
 
 componentDidMount() {
-    console.log("componentDidMount");
     rebase.initializedApp.auth().onAuthStateChanged((user) => {
         if (user) {
                 this.setState({

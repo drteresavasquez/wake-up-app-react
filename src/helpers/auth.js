@@ -1,13 +1,5 @@
 import { googleProvider, rebase }  from '../config/constants'
 
-export function auth (email, pw) {
-  return rebase.initializedApp.auth().createUserWithEmailAndPassword(email, pw)
-    .then((data) => {
-      console.log("data is", data);
-      saveUser(data);
-    })
-}
-
 export function logout () {
   return rebase.initializedApp.auth().signOut()
 }

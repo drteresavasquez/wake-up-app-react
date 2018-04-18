@@ -33,18 +33,18 @@ class TopBar extends Component {
                         </div>
                     </div>)
                 }
-                    <div className="right menu">
-                        {this.props.authed ? 
-                            (
-                                <p>PUT WEATHER COMPONENT HERE</p>
-                            ) : 
-                            (
-                                <button onClick={() => this.authenticate()} className="ui primary button">Login Google</button>
-                            )
-                        }
-                    </div>
-                </div> 
-            </div>           
+                <div className="right menu">
+                    {this.props.authed ? 
+                        (
+                            <p>PUT WEATHER COMPONENT HERE</p>
+                        ) : 
+                        (
+                            <button onClick={() => this.authenticate()} className="ui primary button">Login Google</button>
+                        )
+                    }
+                </div>
+            </div> 
+        </div>           
         );
     }
 
