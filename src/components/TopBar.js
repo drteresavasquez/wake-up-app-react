@@ -2,17 +2,9 @@ import React, {Component} from 'react';
 import {logout} from '../helpers/auth'
 import {loginWithGoogle} from '../helpers/auth';
 import './../styles/TopBar.css';
+import logo from './../images/wakeupapp.png';
 
 class TopBar extends Component {
-    authenticate = () => {
-        console.log('App: calling autheticate for google');
-        loginWithGoogle();
-    }
-
-    logoutApp = () => {
-        console.log('App: calling logoutApp')
-        logout();
-    }
     render() {
         return(
             <div>
@@ -23,10 +15,10 @@ class TopBar extends Component {
                         <div className="content">
                         <div className="ui sub header">Hello,</div>
                         {this.props.name}<br />
-                        <a className="logout" onClick={() => {this.logoutApp()}}>Logout</a>
+                        <a className="logout" onClick={() => {logout()}}>Logout</a>
                         </div>
                     </div>):(<div className="item">
-                    <img className="ui mini circular image" src="wakeupapp.png" alt="User Avatar"/>
+                    <img className="ui mini circular image" src={logo} alt="User Avatar"/>
                         <div className="content">
                         <div className="ui sub header">Welcome To</div>
                         Wake Up App
@@ -39,7 +31,7 @@ class TopBar extends Component {
                             <p>PUT WEATHER COMPONENT HERE</p>
                         ) : 
                         (
-                            <button onClick={() => this.authenticate()} className="ui primary button">Login Google</button>
+                            <button onClick={() => loginWithGoogle()} className="ui primary button">Login</button>
                         )
                     }
                 </div>

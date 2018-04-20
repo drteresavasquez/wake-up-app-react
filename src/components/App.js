@@ -8,26 +8,45 @@ class App extends Component {
   state = {
     authed: false,
     loading: true,
-    uid: null,
-    name: null,
-    photo: null
+    zip: 12345
 }
 
 componentDidMount() {
     rebase.initializedApp.auth().onAuthStateChanged((user) => {
         if (user) {
-                this.setState({
-                    authed: true, 
-                    loading: false, 
-                    uid: user.uid,
-                    photo: user.photoURL,
-                    name: user.displayName
-                });
-            } else {
+         this.setState({
+            authed: true, 
+            loading: false, 
+            uid: user.uid,
+            photo: user.photoURL,
+            name: user.displayName
+          });          
+          // this.getLocation();
+    
+        } else {
                 this.setState({authed: false, loading: false, uid: null})
             }
-        })
+    })
 }
+
+//  getLocation = () => {
+//     var geoSuccess = function(position) {  
+//       const startPos = position;
+//       console.log("LATT", startPos.coords.latitude);
+//       console.log("LONG", startPos.coords.longitude);
+//     };
+//     var geoError = function(error) {
+//       switch(error.code) {
+//         case error.TIMEOUT:
+//         console.log("REJECTED!!!");
+//           break;
+//         default:
+//         break;
+//       }
+//     };
+//     navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
+// }
+
   render() {
     return (
       <div>
@@ -36,12 +55,9 @@ componentDidMount() {
             name={this.state.name}
             photo={this.state.photo}
           />
-
-        <div className="container">
         <Dashboard 
           authed={this.state.authed}
         />
-        </div>
     </div>
     );
   }

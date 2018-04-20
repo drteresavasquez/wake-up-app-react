@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import Jumbotron from './Jumbotron';
+import {loginWithGoogle} from '../helpers/auth';
 
 class Dashboard extends Component{
     render(){
@@ -10,7 +12,13 @@ class Dashboard extends Component{
                     <p>PUT OTHER COMPONENTS</p>
                 ) : 
                 (
-                    <p></p>// <button onClick={() => this.authenticate('google')} className="ui primary button">Login Google</button>
+                    <Jumbotron
+                        title="Title"
+                        copy="Copy"
+                        link="#"
+                        buttonText="Button Text"
+                        onClick={() => loginWithGoogle()}
+                    />
                 )
             }
             </div>

@@ -13,16 +13,15 @@ export function loginWithGoogle () {
 
 
 export function saveUser (user) {
-  console.log("save user", user);
   return rebase.initializedApp.database().ref().child(`wakeupappusers/${user.uid}/deets`)
-    .set({
+    .update({
       email: user.email,
       uid: user.uid,
       photo: user.photoURL,
-      name: user.displayName
+      name: user.displayName,
+      zip: ''
     })
     .then(() => {
-      
       return user;
     })
 }
