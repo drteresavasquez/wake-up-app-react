@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Jumbotron from './Jumbotron';
-import {loginWithGoogle} from '../helpers/auth';
 import WeatherDashboard from './WeatherDashboard';
 
 class Dashboard extends Component{
@@ -13,7 +12,9 @@ class Dashboard extends Component{
                     <div className="container">
                         <div className="row">
                             <div className="col-sm-4">
-                                <WeatherDashboard />
+                                <WeatherDashboard 
+                                    zip={this.props.zip}
+                                />
                             </div>
                             <div className="col-sm-8">col-8</div>
                         </div>

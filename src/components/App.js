@@ -62,6 +62,7 @@ loginWithGoogle = () => {
           user={this.state.user}
           authed={this.state.authed}
           login={this.loginWithGoogle}
+          zip={this.state.zip}
         />
     </div>
     );
