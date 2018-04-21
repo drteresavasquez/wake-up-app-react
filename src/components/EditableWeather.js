@@ -52,7 +52,4 @@ class EditableWeather extends Component {
       }
     }
 
-
-
-
 export default EditableWeather;

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {logout} from '../helpers/auth'
-import {loginWithGoogle} from '../helpers/auth';
 import './../styles/TopBar.css';
 import logo from './../images/wakeupapp.png';
 
@@ -31,7 +30,7 @@ class TopBar extends Component {
                           <p></p>
                         ) : 
                         (
-                            <button onClick={() => loginWithGoogle()} className="ui primary button">Login</button>
+                            <button onClick={() => this.props.login()} className="ui primary button">Login</button>
                         )
                     }
                 </div>

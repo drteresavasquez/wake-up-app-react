@@ -3,9 +3,10 @@ import './../styles/Weather.css';
 
 class Weather extends Component{
     state={
-      weather:'',
-      city:'',
-      error: null
+        user: null,
+        weather:'',
+        city:'',
+        error: null
     }
   
     componentDidMount(){
@@ -31,6 +32,10 @@ class Weather extends Component{
             })
           }
       )
+    }
+
+    sendWeathertoFB = () => {
+
     }
   
     render(){

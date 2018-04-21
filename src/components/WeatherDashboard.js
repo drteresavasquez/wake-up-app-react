@@ -4,7 +4,7 @@ import EditableWeatherList from './EditableWeatherList';
 class WeatherDashboard extends Component{
     state = {      
         locations: [
-            {id: 1, zip: 38652},
+          {id: 1, zip: 38652},
           ]
         }
 
