@@ -11,7 +11,6 @@ export function loginWithGoogle () {
   });
 }
 
-
 export function saveUser (user) {
   return rebase.initializedApp.database().ref().child(`wakeupappusers/${user.uid}/deets`)
     .update({
@@ -19,13 +18,19 @@ export function saveUser (user) {
       uid: user.uid,
       photo: user.photoURL,
       name: user.displayName,
-      zip: ''
+      zip: null
     })
     .then(() => {
       return user;
     })
 }
 
-// export function getUser(){
-//   return 
-// }
+export function setWeather(user, result){
+  return rebase.initializedApp.database().ref().child(`wakeupappusers/${user.uid}/weather`)
+    .update({
+      date: Date.now(),
+      weather: result.weather[0].main,
+      city: result.name,
+      temp: result.main.temp,
+    })
+}

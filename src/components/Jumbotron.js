@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import Button from './Button';
+import LoginButton from './LoginButton.js';
+import './../styles/Jumbotron.css';
 
 class Jumbotron extends Component{
     render(){
@@ -8,7 +9,7 @@ class Jumbotron extends Component{
                 <div className="container">
                     <h1 className="display-4">{this.props.title}</h1>
                     <p className="lead">{this.props.copy}</p>
-                    <Button 
+                    <LoginButton 
                         link={this.props.link}
                         buttonText={this.props.buttonText}
                         onClick={this.props.onClick}

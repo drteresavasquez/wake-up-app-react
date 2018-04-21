@@ -4,3 +4,22 @@ body {
   font-family: sans-serif;
   min-width: 500px;
 }
+
+.container{
+  margin-top: 20px;
+}
+
+.col-sm-4{
+  margin: 0 auto !important;
+  padding: 0 !important;
+}
+
+.ui.centered.card{
+  border-top: none !important;
+  border-right: none !important;
+  border-left: none !important;
+}
+
+.login{
+  background: #f74c62 !important;
+}

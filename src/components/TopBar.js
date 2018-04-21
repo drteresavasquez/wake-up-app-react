@@ -28,7 +28,7 @@ class TopBar extends Component {
                 <div className="right menu">
                     {this.props.authed ? 
                         (
-                            <p>PUT WEATHER COMPONENT HERE</p>
+                          <p></p>
                         ) : 
                         (
                             <button onClick={() => loginWithGoogle()} className="ui primary button">Login</button>

@@ -1,9 +1,18 @@
 .ui.top.attached.menu{
-    margin-top: 10px !important;
-    border-top: none !important;
-    border-right: none !important;
-    border-left: none !important;
+    padding-top: 10px !important;
+    border: none !important;
     padding-bottom: 10px !important;
+    background: #00b6f7 !important;
+    color: white !important;
+}
+
+.item:first-child{
+    border-right: none !important;
+}
+
+.ui.sub.header, .content{
+    color: white !important;
+    border: none !important;
 }
 
 .ui.button{

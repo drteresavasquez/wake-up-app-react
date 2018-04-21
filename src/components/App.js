@@ -19,7 +19,8 @@ componentDidMount() {
             loading: false, 
             uid: user.uid,
             photo: user.photoURL,
-            name: user.displayName
+            name: user.displayName,
+            user: user
           });          
           // this.getLocation();
     
@@ -55,7 +56,8 @@ componentDidMount() {
             name={this.state.name}
             photo={this.state.photo}
           />
-        <Dashboard 
+        <Dashboard
+          user={this.state.user}
           authed={this.state.authed}
         />
     </div>
