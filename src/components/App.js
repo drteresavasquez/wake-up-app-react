@@ -41,10 +41,8 @@ loginWithGoogle = () => {
           saveUser(data.user);
         // otherwise, set state with the stuff from FB
         }else{
-          console.log(userData);
           this.setState({
             zip: userData.zip,
-            user: userData
           })
         }
       }
@@ -63,6 +61,7 @@ loginWithGoogle = () => {
         <Dashboard
           user={this.state.user}
           authed={this.state.authed}
+          login={this.loginWithGoogle}
         />
     </div>
     );

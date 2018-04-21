@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Jumbotron from './Jumbotron';
-// import {loginWithGoogle} from '../helpers/auth';
+import {loginWithGoogle} from '../helpers/auth';
 import WeatherDashboard from './WeatherDashboard';
 
 class Dashboard extends Component{
@@ -25,7 +25,7 @@ class Dashboard extends Component{
                         copy="Here at Wake Up App we care about your day!"
                         link="#"
                         buttonText="Login"
-                        // onClick={() => loginWithGoogle()}
+                        onClick={() => this.props.login()}
                     />
                    
                 )
