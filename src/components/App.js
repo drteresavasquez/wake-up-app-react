@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import './../styles/App.css';
+import { googleProvider, rebase }  from '../config/constants';
 import {saveUser} from '../helpers/auth';
 import TopBar from './TopBar';
-import {googleProvider, rebase} from './../config/constants';
 import Dashboard from './Dashboard';
 
 class App extends Component {
   state = {
     authed: false,
     loading: true,
+    zip: null
 }
 
 componentDidMount() {
@@ -17,6 +18,10 @@ componentDidMount() {
          this.setState({
             authed: true, 
             loading: false, 
+            uid: user.uid,
+            photo: user.photoURL,
+            name: user.displayName,
+            user: user
           });              
         } else {
             this.setState({authed: false, loading: false, uid: null})
@@ -24,7 +29,7 @@ componentDidMount() {
     })
 }
 
- loginWithGoogle = () => {
+loginWithGoogle = () => {
   return rebase.initializedApp.auth().signInWithPopup(googleProvider)
   .then((data) => {
     // Check FB for the authenticated user
@@ -38,9 +43,6 @@ componentDidMount() {
         }else{
           console.log(userData);
           this.setState({
-            uid: userData.uid,
-            photo: userData.photo,
-            name: userData.name,
             zip: userData.zip,
             user: userData
           })
