@@ -1,7 +1,24 @@
-import { rebase }  from '../config/constants'
+import { googleProvider, rebase }  from '../config/constants'
 
 export function logout () {
   return rebase.initializedApp.auth().signOut()
+}
+
+export function loginWithGoogle() {
+  return rebase.initializedApp.auth().signInWithPopup(googleProvider)
+  .then((data) => {
+    // Check FB for the authenticated user
+    rebase.fetch(`wakeupappusers/${data.user.uid}/deets`, {
+      context: this,
+      then(userData){
+        // if the user does not exist add them to FB
+        if(Object.keys(userData).length === 0){
+          saveUser(data.user);
+        // otherwise, set state with the stuff from FB
+        }
+      }
+    });
+  });
 }
 
 export function saveUser(user) {

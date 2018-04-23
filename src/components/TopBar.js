@@ -30,7 +30,7 @@ class TopBar extends Component {
                           <p></p>
                         ) : 
                         (
-                            <button onClick={() => this.props.login()} className="ui primary button">Login</button>
+                            <button onClick={this.props.login} className="ui primary button">Login</button>
                         )
                     }
                 </div>

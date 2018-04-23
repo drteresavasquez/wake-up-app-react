@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './../styles/App.css';
-import { googleProvider, rebase }  from '../config/constants';
-import {saveUser} from '../helpers/auth';
+import { rebase }  from '../config/constants';
+import {loginWithGoogle} from '../helpers/auth';
 import TopBar from './TopBar';
 import Dashboard from './Dashboard';
 
@@ -28,27 +28,6 @@ componentDidMount() {
         }
     })
 }
-
-loginWithGoogle = () => {
-  return rebase.initializedApp.auth().signInWithPopup(googleProvider)
-  .then((data) => {
-    // Check FB for the authenticated user
-    rebase.fetch(`wakeupappusers/${data.user.uid}/deets`, {
-      context: this,
-      then(userData){
-        // if the user does not exist add them to FB
-        if(Object.keys(userData).length === 0){
-          saveUser(data.user);
-        // otherwise, set state with the stuff from FB
-        }else{
-          this.setState({
-            zip: userData.zip,
-          })
-        }
-      }
-    });
-  });
-}
   render() {
     return (
       <div>
@@ -56,12 +35,12 @@ loginWithGoogle = () => {
             authed={this.state.authed}
             name={this.state.name}
             photo={this.state.photo}
-            login={this.loginWithGoogle}
+            login={()=>loginWithGoogle()}
           />
         <Dashboard
           user={this.state.user}
           authed={this.state.authed}
-          login={this.loginWithGoogle}
+          login={()=>loginWithGoogle()}
           zip={this.state.zip}
         />
     </div>
