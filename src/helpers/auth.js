@@ -14,7 +14,6 @@ export function loginWithGoogle() {
         // if the user does not exist add them to FB
         if(Object.keys(userData).length === 0){
           saveUser(data.user);
-        // otherwise, set state with the stuff from FB
         }
       }
     });
