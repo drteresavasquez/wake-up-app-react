@@ -12,7 +12,9 @@ class Dashboard extends Component{
                     <div className="container">
                         <div className="row">
                             <div className="col-sm-4">
-                                <WeatherDashboard />
+                                <WeatherDashboard 
+                                    user={this.props.user}
+                                />
                             </div>
                             <div className="col-sm-8">col-8</div>
                         </div>

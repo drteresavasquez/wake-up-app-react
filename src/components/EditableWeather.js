@@ -43,6 +43,7 @@ class EditableWeather extends Component {
           return (
             <Weather
             user={this.props.user}
+            date={this.props.date}
               id={this.props.id}
               zip={this.props.zip}
               onEditClick={this.handleEditClick}

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './../styles/Weather.css';
+import { rebase }  from '../config/constants';
 
 class Weather extends Component{
     state={
-        user: null,
         weather:'',
         city:'',
         error: null
@@ -20,22 +20,27 @@ class Weather extends Component{
       .then(result => result.json())
       .then(
           (result) => {
-              this.setState({
-                weather: result.weather[0].main,
-                city: result.name,
-                temp: result.main.temp,
-              })
-          },
+        // let newDate = new Date(24 * 3600 * 1000)
+        // if((newDate - this.props.date) > 24 ){
+            return rebase.initializedApp.database().ref().child(`wakeupappusers/${this.props.user.uid}/weather`)
+                .update({
+                    weather: result.weather[0].main,
+                    city: result.name,
+                    temp: result.main.temp,
+                })
+                //   this.setState({
+                //     weather: result.weather[0].main,
+                //     city: result.name,
+                //     temp: result.main.temp,
+                //   })
+        //   }
+        },
           (error) => {
             this.setState({
               error: error
             })
           }
       )
-    }
-
-    sendWeathertoFB = () => {
-
     }
   
     render(){

@@ -9,6 +9,7 @@ class EditableWeatherList extends Component{
           key={location.id}
           id={location.id}
           zip= {location.zip}
+          date={location.date}
           onFormSubmit={this.props.onFormSubmit}
         />
       ))
