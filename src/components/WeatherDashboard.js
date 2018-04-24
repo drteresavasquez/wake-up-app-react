@@ -4,7 +4,13 @@ import { rebase }  from '../config/constants';
 
 class WeatherDashboard extends Component{
     state = {      
-        locations: []
+        locations: [],
+        id: '',
+        city: '',
+        date: '',
+        temp: '',
+        weather:'',
+        zip:''
         }
       
       componentWillMount = () => {
@@ -18,7 +24,13 @@ class WeatherDashboard extends Component{
               })
             }else{
               this.setState({
-                locations:[{id: weather.id, zip: weather.zip}]
+                locations:[{id: weather.id, zip: weather.zip}],
+                zip:Number(weather.zip),
+                id: weather.id,
+                city: weather.city,
+                date: weather.date,
+                temp: weather.temp,
+                weather:weather.weather,
               })
             }
           }
@@ -45,7 +57,7 @@ class WeatherDashboard extends Component{
                     id: Number(attrs.zip),
                     zip: Number(attrs.zip),
                     date: Date.now()
-                }]
+                  }]
                 });
               })        
             }else {
@@ -61,6 +73,12 @@ class WeatherDashboard extends Component{
             <EditableWeatherList 
               user={this.props.user}
               locations={this.state.locations}
+              id={this.state.id}
+              city={this.state.city}
+              date={this.state.date}
+              temp={this.state.temp}
+              weather={this.state.weather}
+              zip={this.state.zip}
               onFormSubmit={this.handleEditFormSubmit}
             />
           </div>

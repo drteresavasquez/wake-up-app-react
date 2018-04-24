@@ -32,7 +32,7 @@ class EditableWeather extends Component {
       if (this.state.editFormOpen) {
         return (
             <WeatherForm
-            user={this.props.user}
+              user={this.props.user}
               id={this.props.id}
               zip={this.props.zip}
               onFormSubmit={this.handleSubmit} 
@@ -42,8 +42,8 @@ class EditableWeather extends Component {
         } else {
           return (
             <Weather
-            user={this.props.user}
-            date={this.props.date}
+              user={this.props.user}
+              date={this.props.date}
               id={this.props.id}
               zip={this.props.zip}
               onEditClick={this.handleEditClick}
